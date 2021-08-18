@@ -1,4 +1,4 @@
-package ch03;
+package ch02;
 /*
  * 동일한 데이터 타입을 순서에 따라 관리하는 자료 구조
  * 정해진 크기가 있음
@@ -81,7 +81,10 @@ public class MyArray {
 		else if((position >= count) || (position < 0)) {
 			System.out.println("The position is out of range");
 		}
-		
+		else if(position+1 == count) {
+			arr[--count] = 0;
+			printArray();
+		}
 		else {
 			for (int i=position; i<count;i++) {
 				arr[i] = arr[i+1];
@@ -106,6 +109,19 @@ public class MyArray {
 			return true;
 		else
 			return false;
+	}
+	
+	// 특정 위치의 값 return
+	public int returnData(int position) {
+		if (isEmpty()) {
+			System.out.println("The array is empty!");
+			return -1;
+		}
+		else if((position >= count) || (position < 0)) {
+			System.out.println("The position is out of range");
+			return -1;
+		}
+		else return arr[position];
 	}
 	
 	public void printArray() {
